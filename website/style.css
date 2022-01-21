@@ -1,37 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap");
 /* The body main style */
-body{
-    background-color: rgb(136,203,171);
-    background-image:  linear-gradient(90deg, rgba(52,225,235,1) 0%, rgba(52,162,235,1) 100%);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
+body {
+  background-color: rgb(136, 203, 171);
+  background-image: linear-gradient(
+    90deg,
+    rgba(52, 225, 235, 1) 0%,
+    rgba(52, 162, 235, 1) 100%
+  );
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
 }
 /* The main title style */
-.headline{ /* The main title container */
-  background-color: white;
-  padding: 5px;
-  text-align: center;
+.headline {
+  /* The main title container */
+  background-color: rgba(52, 162, 235, 1);
+  background-image: linear-gradient(
+    0deg,
+    rgba(52, 162, 235, 1) 0%,
+    rgba(255, 255, 255,1) 100%
+  );
+  padding: 25px 5px;
   margin-bottom: 5px;
   grid-column: 1/3;
   max-height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.headline span{ /* The main title text */
+.headline span {
+  /* The main title text */
   background-image: linear-gradient(45deg, blue, red);
   color: transparent;
   -webkit-background-clip: text;
   font-weight: 700;
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
   font-size: 35px;
 }
+.headline svg {
+  width: 60px;
+  height: 60px;
+}
+/*
+** CLOUDS
+*/
+@keyframes am-weather-cloud-2 {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    -webkit-transform: translate(2px, 0px);
+    -moz-transform: translate(2px, 0px);
+    -ms-transform: translate(2px, 0px);
+    transform: translate(2px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+.am-weather-cloud-2 {
+  -webkit-animation-name: am-weather-cloud-2;
+  -moz-animation-name: am-weather-cloud-2;
+  animation-name: am-weather-cloud-2;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/*
+** SUN
+*/
+@keyframes am-weather-sun {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.am-weather-sun {
+  -webkit-animation-name: am-weather-sun;
+  -moz-animation-name: am-weather-sun;
+  -ms-animation-name: am-weather-sun;
+  animation-name: am-weather-sun;
+  -webkit-animation-duration: 9s;
+  -moz-animation-duration: 9s;
+  -ms-animation-duration: 9s;
+  animation-duration: 9s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes am-weather-sun-shiny {
+  0% {
+    stroke-dasharray: 3px 10px;
+    stroke-dashoffset: 0px;
+  }
+
+  50% {
+    stroke-dasharray: 0.1px 10px;
+    stroke-dashoffset: -1px;
+  }
+
+  100% {
+    stroke-dasharray: 3px 10px;
+    stroke-dashoffset: 0px;
+  }
+}
+
+.am-weather-sun-shiny line {
+  -webkit-animation-name: am-weather-sun-shiny;
+  -moz-animation-name: am-weather-sun-shiny;
+  -ms-animation-name: am-weather-sun-shiny;
+  animation-name: am-weather-sun-shiny;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+/* End Of Cloud */
 /* The Wrapper Style */
-#app{
-    display: flex;
-    flex-flow: column;
-    width: 100vw;
+#app {
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
 }
 @media only screen and (min-width: 850px) {
-  #app{
+  #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -40,7 +172,8 @@ body{
   }
 }
 /* The input data styles */
-.inputData{ /* the form container */
+.inputData {
+  /* the form container */
   padding: 5px;
   display: flex;
   flex-flow: column;
@@ -50,20 +183,30 @@ body{
   min-height: 100%;
   box-sizing: border-box;
 }
-.zip, .feel{ /* Each input container */
+p {
+  text-align: center;
+  text-transform: capitalize;
+  color: rgba(49, 59, 79, 1);
+}
+.zip,
+.feel {
+  /* Each input container */
   padding: 5px;
   display: flex;
   flex-flow: column;
 }
-label{ /* Each lable style */
+label {
+  /* Each lable style */
   font-weight: 700;
-  font-family: 'Dongle';
+  font-family: "Dongle";
   font-size: 30px;
   color: rgba(49, 59, 79, 1);
   text-shadow: 1px 1.2px rgb(125, 133, 150);
   text-transform: capitalize;
 }
-.zip input, .feel textarea{ /* Each input Field Style */
+.zip input,
+.feel textarea {
+  /* Each input Field Style */
   appearance: none;
   padding: 3px;
   border: 2px solid lightcoral;
@@ -74,22 +217,25 @@ label{ /* Each lable style */
   text-transform: capitalize;
   min-height: 30px;
 }
-::placeholder{
-  color: rgba(255, 227, 194, .8);
+::placeholder {
+  color: rgba(255, 227, 194, 0.8);
 }
-.zip input:focus, .feel textarea:focus{
+.zip input:focus,
+.feel textarea:focus {
   outline: none;
 }
-.button{ /* button Container Style */
+.button {
+  /* button Container Style */
   display: flex;
   justify-content: center;
 }
-button{ /* button Style */
+button {
+  /* button Style */
   width: auto;
   text-align: center;
   margin: 5px;
   font-weight: 600;
-  font-family: 'Dongle';
+  font-family: "Dongle";
   font-size: 25px;
   padding: 0 5px;
   border-radius: 5px;
@@ -97,18 +243,18 @@ button{ /* button Style */
   color: rgba(49, 59, 79, 1);
   background-color: wheat;
 }
-button:hover{
+button:hover {
   color: wheat;
   background-color: rgba(49, 59, 79, 1);
   box-shadow: 2px 3px wheat;
 }
-button:active{
+button:active {
   color: rgba(49, 59, 79, 1);
   background-color: wheat;
   box-shadow: none;
 }
 /* The output data styles */
-.entry{
+.entry {
   padding: 5px;
   display: flex;
   flex-flow: column;
@@ -118,92 +264,57 @@ button:active{
   min-height: 100%;
   box-sizing: border-box;
 }
-.title{
+.title {
   text-align: center;
   text-transform: capitalize;
   font-weight: 700;
-  font-family: 'Dongle';
+  font-family: "Dongle";
   font-size: 35px;
   color: rgb(245, 106, 55);
   text-shadow: 1.2px 1.4px rgb(125, 133, 150);
 }
 
-div#entryHolder > div{
-  margin: 5px;
+div#entryHolder > div {
+  margin: 15px;
+  display: flex;
+  align-items: center;
 }
-div#entryHolder > div > :first-child{
+div#entryHolder > div > :first-child {
   font-weight: 600;
   color: rgba(49, 59, 79, 1);
   text-shadow: 1px 1.2px rgb(125, 133, 150);
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  margin-right: 3px;
 }
-div#entryHolder > div > :last-child{
+div#entryHolder svg {
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+}
+div#entryHolder > div > :last-child {
   font-weight: 600;
   color: rgba(49, 59, 79, 1);
   text-transform: capitalize;
   font-size: 14px;
 }
 
-
-.holder{
+/* stylin the error message */
+div#error{
+  text-align: center;
+  margin: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  color: rgba(49, 59, 79, 1);
+  font-weight: 600;
+  display: none;
 }
-
-.entry{
-    /* background: rgba(59, 74, 107, .4); */
+div#error div{
+  box-sizing: border-box;
+  background-color: lightcoral;
+  padding: 10px;
+  text-transform: capitalize;
+  line-height: 35px;
+  border-radius: 25px;
 }
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-
-
-h1{
-    /* font-size: 36px; */
-}
-
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    /* outline: none; */
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; */
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; */
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; */
-
-} 

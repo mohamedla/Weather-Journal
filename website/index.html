@@ -1,39 +1,129 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Weather Journal</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Weather Journal</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
- <body>
-  <div class ="headline">
+
+<body>
+  <div class="headline">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewbox="0 0 64 64">
+      <defs>
+        <filter id="blur" width="200%" height="200%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+          <feOffset dx="0" dy="4" result="offsetblur" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.05" />
+          </feComponentTransfer>
+          <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <g filter="url(#blur)" id="cloudy-day-3">
+        <g transform="translate(20,10)">
+          <g transform="translate(0,16)">
+            <g class="am-weather-sun">
+              <g>
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(45)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(90)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(135)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(180)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(225)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(270)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+              <g transform="rotate(315)">
+                <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)"
+                  x1="0" x2="0" y1="0" y2="3" />
+              </g>
+            </g>
+            <circle cx="0" cy="0" fill="orange" r="5" stroke="orange" stroke-width="2" />
+          </g>
+          <g class="am-weather-cloud-2">
+            <path
+              d="M47.7,35.4c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3    c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z"
+              fill="#57A0EE" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)" />
+          </g>
+        </g>
+      </g>
+    </svg>
     <span>Weather</span> <span>Journal</span> <span>App</span>
   </div>
-  <div id = "app">
-    <div class="inputData">
-      <div class ="holder zip">
+  <div id="app">
+    <form class="inputData">
+      <p>note that the zipcode must be in USA</p>
+      <div class="holder zip">
         <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here">
+        <input type="text" id="zip" required placeholder="enter zip code here">
       </div>
-      <div class ="holder feel">
+      <div class="holder feel">
         <label for="feelings">How are you feeling today?</label>
-        <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+        <textarea class="myInput" id="feelings" required placeholder="Enter your feelings here" rows="9"
+          cols="50"></textarea>
+      </div>
+      <div id="error">
+        <div>
+          
+        </div>
       </div>
       <div class="button">
-        <button id="generate" type = "submit"> Generate </button>
+        <button id="generate" type="submit"> Generate </button>
       </div>
-    </div>
-    <div class ="entry">
-      <div class = "title">Most Recent Entry</div>
-      <div id = "entryHolder">
-        <div id = "date"><span>Date: </span><span id="date-span"></span></div> 
-        <div id = "temp"><span>Temperature: </span><span id="date-span"></span></div>
-        <div id = "content"><span>Content: </span><span id="date-span"></span></div>
+    </form>
+    <div class="entry">
+      <div class="title">Most Recent Entry</div>
+      <div id="entryHolder">
+        <div id="date"><span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Timestamp: </span><span id="date-span"></span></div>
+        <div id="temp"><span><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 441.122 441.122"
+              style="enable-background:new 0 0 441.122 441.122;" xml:space="preserve">
+              <path
+                d="M273.795,268.526V53.235C273.795,23.881,249.913,0,220.559,0s-53.235,23.881-53.235,53.235V268.53c-26.609,18.183-42.311,48.963-41.218,81.341c1.636,48.542,40.887,88.564,89.358,91.115c1.726,0.091,3.446,0.136,5.159,0.136c24.326,0,47.231-9.105,64.975-25.94c19.005-18.031,29.471-42.383,29.471-68.57C315.068,315.067,299.72,286.185,273.795,268.526zM275.274,404.299c-15.977,15.16-36.937,22.875-59.021,21.707c-40.766-2.145-73.778-35.81-75.155-76.641c-0.959-28.436,13.478-55.409,37.676-70.394c2.208-1.367,3.551-3.779,3.551-6.376V53.235C182.324,32.152,199.477,15,220.56,15s38.235,17.152,38.235,38.235v219.359c0,2.597,1.344,5.009,3.552,6.376c23.62,14.627,37.722,39.913,37.722,67.64C300.068,368.642,291.263,389.129,275.274,404.299z" />
+              <path
+                d="M286.816,325.48c-1.253-3.948-5.469-6.134-9.417-4.881c-3.948,1.252-6.134,5.468-4.882,9.417c1.693,5.338,2.552,10.921,2.552,16.595c0,14.561-5.67,28.25-15.965,38.545c-10.992,10.994-25.842,16.717-41.539,15.884c-27.925-1.469-50.539-24.538-51.482-52.518c-0.658-19.509,9.248-38.015,25.851-48.296l11.838-7.331c2.208-1.367,3.552-3.779,3.552-6.376V65h26.471v221.519c0,2.597,1.344,5.009,3.551,6.376l11.838,7.331c3.523,2.181,8.145,1.094,10.325-2.428c2.182-3.521,1.095-8.144-2.427-10.325l-8.287-5.132V57.5c0-4.142-3.357-7.5-7.5-7.5h-41.471c-4.142,0-7.5,3.358-7.5,7.5v224.842l-8.287,5.131c-21.16,13.103-33.784,36.689-32.945,61.554c1.203,35.691,30.056,65.118,65.687,66.992c1.26,0.066,2.533,0.1,3.787,0.1c18.565,0,36.02-7.229,49.146-20.357c13.128-13.129,20.357-30.585,20.357-49.152C290.068,339.396,288.974,332.287,286.816,325.48z" />
+              <path
+                d="M269.053,315.409c1.987,0,3.88-0.813,5.3-2.19c2.757-2.841,2.924-7.38,0.251-10.342c-2.308-2.558-6.214-3.187-9.219-1.506c-3.023,1.692-4.508,5.362-3.517,8.682C262.808,313.201,265.762,315.409,269.053,315.409z" />
+            </svg>
+            Temperature: </span><span id="temp-span"></span>
+          </div>
+        <div id="content"><span><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve"><path id="XMLID_27_" d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300c-74.44,0-135-60.561-135-135S90.56,30,165,30s135,60.561,135,135S239.439,300,165,300z"/><path id="XMLID_30_" d="M215.911,200.912H114.088c-6.067,0-11.537,3.654-13.858,9.26c-2.321,5.605-1.038,12.057,3.252,16.347C119.914,242.95,141.762,252,165,252c23.238,0,45.086-9.05,61.518-25.481c4.29-4.29,5.573-10.741,3.252-16.347C227.448,204.566,221.978,200.912,215.911,200.912z"/><path id="XMLID_31_" d="M115.14,147.14c3.72-3.72,5.86-8.88,5.86-14.14c0-5.26-2.14-10.42-5.86-14.141C111.42,115.14,106.26,113,101,113c-5.27,0-10.42,2.14-14.14,5.859C83.13,122.58,81,127.74,81,133c0,5.26,2.13,10.42,5.86,14.14c3.72,3.72,8.88,5.86,14.14,5.86C106.26,153,111.42,150.859,115.14,147.14z"/><path id="XMLID_71_" d="M229,113c-5.26,0-10.42,2.14-14.14,5.859c-3.72,3.721-5.86,8.87-5.86,14.141c0,5.26,2.14,10.42,5.86,14.14c3.72,3.72,8.88,5.86,14.14,5.86c5.26,0,10.42-2.141,14.14-5.86c3.73-3.72,5.86-8.88,5.86-14.14c0-5.26-2.13-10.42-5.86-14.141C239.42,115.14,234.27,113,229,113z"/></svg>
+          Feeling: </span><span id="cont-span"></span></div>
       </div>
     </div>
   </div>
-<script src="app.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
 
 </body>
+
 </html>

@@ -2,9 +2,9 @@
 let projectData = {}; // the data holder
 
 // Require Express to run server and routes
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 // Start up an instance of app
 const app = express();
 /* Middleware*/
@@ -15,25 +15,25 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static("website"));
 
 // Setup Server
 const port = 8000;
 
-const server = app.listen(port,()=>{
-  console.log('Server Is running');
+const server = app.listen(port, () => {
+  console.log("Server Is running");
 });
 // get route to retrive data
-app.get('/getdata',(req,res)=>{
+app.get("/getdata", (req, res) => {
   if (projectData[objectNewData] != undefined) {
     res.send(projectData[objectNewData]);
   } else {
-    res.send('Some Thing Went Wrong');
+    res.send("Some Thing Went Wrong");
   }
 });
 // post route to store data
 let counter = 1;
-let objectNewData = 'weatheData'+ 1;
-app.post('/add',(req,res)=>{
+let objectNewData = "weatheData" + 1;
+app.post("/add", (req, res) => {
   projectData[objectNewData] = req.body;
 });
