@@ -1,5 +1,5 @@
 /* Global Variables */
-"{zip code},{country code}";
+"{zip code},{country code} &#0176;";
 const zipBaseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=bc64de2e168d38cc1c9b60077ea17b6e&units=imperial';// Personal API Key for OpenWeatherMap API
 // Create a new date instance dynamically with JS

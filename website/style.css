@@ -1,27 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+/* The body main style */
 body{
-    background: #fffff8;
+    background-color: rgb(136,203,171);
+    background-image:  linear-gradient(90deg, rgba(52,225,235,1) 0%, rgba(52,162,235,1) 100%);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+}
+/* The main title style */
+.headline{ /* The main title container */
+  background-color: white;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  grid-column: 1/3;
+  max-height: fit-content;
+}
+.headline span{ /* The main title text */
+  background-image: linear-gradient(45deg, blue, red);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-weight: 700;
+  font-family: 'Dancing Script';
+  font-size: 35px;
+}
+/* The Wrapper Style */
+#app{
+    display: flex;
+    flex-flow: column;
+    width: 100vw;
+}
+@media only screen and (min-width: 850px) {
+  #app{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5px;
+  }
+}
+/* The input data styles */
+.inputData{ /* the form container */
+  padding: 5px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 5px 0 0 5px;
+  border: 2.5px solid black;
+  margin: 5px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.zip, .feel{ /* Each input container */
+  padding: 5px;
+  display: flex;
+  flex-flow: column;
+}
+label{ /* Each lable style */
+  font-weight: 700;
+  font-family: 'Dongle';
+  font-size: 30px;
+  color: rgba(49, 59, 79, 1);
+  text-shadow: 1px 1.2px rgb(125, 133, 150);
+  text-transform: capitalize;
+}
+.zip input, .feel textarea{ /* Each input Field Style */
+  appearance: none;
+  padding: 3px;
+  border: 2px solid lightcoral;
+  border-radius: 5px;
+  background-color: rgba(49, 59, 79, 1);
+  color: wheat;
+  box-shadow: 2px 3px rgb(125, 133, 150);
+  text-transform: capitalize;
+  min-height: 30px;
+}
+::placeholder{
+  color: rgba(255, 227, 194, .8);
+}
+.zip input:focus, .feel textarea:focus{
+  outline: none;
+}
+.button{ /* button Container Style */
+  display: flex;
+  justify-content: center;
+}
+button{ /* button Style */
+  width: auto;
+  text-align: center;
+  margin: 5px;
+  font-weight: 600;
+  font-family: 'Dongle';
+  font-size: 25px;
+  padding: 0 5px;
+  border-radius: 5px;
+  box-shadow: 2px 3px rgb(49 59 79);
+  color: rgba(49, 59, 79, 1);
+  background-color: wheat;
+}
+button:hover{
+  color: wheat;
+  background-color: rgba(49, 59, 79, 1);
+  box-shadow: 2px 3px wheat;
+}
+button:active{
+  color: rgba(49, 59, 79, 1);
+  background-color: wheat;
+  box-shadow: none;
+}
+/* The output data styles */
+.entry{
+  padding: 5px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 0 5px 5px 0;
+  border: 2.5px solid black;
+  margin: 5px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.title{
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: 'Dongle';
+  font-size: 35px;
+  color: rgb(245, 106, 55);
+  text-shadow: 1.2px 1.4px rgb(125, 133, 150);
 }
 
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+div#entryHolder > div{
+  margin: 5px;
 }
+div#entryHolder > div > :first-child{
+  font-weight: 600;
+  color: rgba(49, 59, 79, 1);
+  text-shadow: 1px 1.2px rgb(125, 133, 150);
+  text-transform: capitalize;
+}
+div#entryHolder > div > :last-child{
+  font-weight: 600;
+  color: rgba(49, 59, 79, 1);
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
 
 .holder{
-
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    /* background: rgba(59, 74, 107, .4); */
 }
 
 #entryHolder{
@@ -48,64 +176,34 @@ body{
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
-}
 
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-}
 
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
 h1{
-    font-size: 36px;
+    /* font-size: 36px; */
 }
 
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+    /* outline: none; */
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+    /* color: #f0d43a; 
+    font-family: 'Oswald', sans-serif; */
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+    /* color: #f0d43a; 
+    font-family: 'Oswald', sans-serif; */
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+    /* color: #f0d43a; 
+    font-family: 'Oswald', sans-serif; */
 
 } 
