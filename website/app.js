@@ -6,32 +6,36 @@ const apiKey = "&appid=bc64de2e168d38cc1c9b60077ea17b6e&units=metric"; // Person
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 
-// Event listener to add function to existing HTML DOM element
-document.querySelector("form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const zip = document.getElementById("zip").value;
-  const feel = document.getElementById("feelings").value;
-  const error = document.getElementById("error");
-  if (/^\d+$/.test(zip)) {
-    getWeatherAPI(zipBaseURL, zip + ",us", apiKey)
-      .then((data) => {
-        sendWeather("/add", {
-          temp: data.main.temp,
-          data: data,
-          date: d.toLocaleString("en-GB"),
-          feel: feel,
+if (typeof window !== 'undefined'){
+  // Event listener to add function to existing HTML DOM element
+  document.querySelector("form").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const zip = document.getElementById("zip").value;
+    const feel = document.getElementById("feelings").value;
+    const error = document.getElementById("error");
+    if (/^\d+$/.test(zip)) {
+      getWeatherAPI(zipBaseURL, zip + ",us", apiKey)
+        .then((data) => {
+          sendWeather("http://localhost:8000/add", {
+            temp: data.main.temp,
+            data: data,
+            date: d.toLocaleString("en-GB"),
+            feel: feel,
+          });
+        })
+        .then(() => {
+          getWeatherApp("http://localhost:8000/getdata");
         });
-      })
-      .then(() => {
-        getWeatherApp("/getdata");
-      });
-      error.style.display = "none";
-  } else {
-    error.style.display = "block";
-    error.querySelector("div").innerText =
-      "Make sure the zipcode contain only numbers";
-  }
-});
+        error.style.display = "none";
+    } else {
+      error.style.display = "block";
+      error.querySelector("div").innerText =
+        "Make sure the zipcode contain only numbers";
+    }
+  });
+}
+
+
 /* Function to GET Web API Data*/
 const getWeatherAPI = async (baseURL, zip, key) => {
   const res = await fetch(baseURL + zip + key);
@@ -48,7 +52,7 @@ const sendWeather = async (url = "", data = {}) => {
     method: "POST",
     credentials: "same-origin",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data)
   });
   try {
     const postData = await res.json();

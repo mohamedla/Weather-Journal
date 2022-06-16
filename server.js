@@ -25,6 +25,7 @@ const server = app.listen(port, () => {
 });
 // get route to retrive data
 app.get("/getdata", (req, res) => {
+  console.log('data');
   if (projectData[objectNewData] != undefined) {
     res.send(projectData[objectNewData]);
   } else {
@@ -35,5 +36,6 @@ app.get("/getdata", (req, res) => {
 let counter = 1;
 let objectNewData = "weatheData" + 1;
 app.post("/add", (req, res) => {
+  console.log('add');
   projectData[objectNewData] = req.body;
 });
